@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Aurelia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body aurelia-app="main">
+    <script src="node_modules/bluebird/js/browser/bluebird.core.js"></script>
+    <script src="node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird.js"></script>
+    <script src="node_modules/systemjs/dist/system.js"></script>
+    <script src="config.js"></script>
+    <script>
+      window.define = SystemJS.amdDefine;
+      window.require = window.requirejs = SystemJS.amdRequire;
+      SystemJS.import("aurelia-bootstrapper");
+    </script>
+  </body>
+</html>

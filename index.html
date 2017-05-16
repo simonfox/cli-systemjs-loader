@@ -12,12 +12,13 @@
     <script src="node_modules/systemjs/dist/system.js"></script>
     <script src="config.js"></script>
     <script>
-      console.log(SystemJS.getConfig());
-      for(let entry of SystemJS.registry.entries()) {
-        console.log(entry);
-      }
-      SystemJS.import("aurelia-bootstrapper").then(function(m) {
-        console.log(m);
+      window.define = SystemJS.amdDefine;
+      window.require = window.requirejs = SystemJS.amdRequire;
+
+      SystemJS.import("scripts/vendor-bundle.js").then(function(m) {
+        SystemJS.import("aurelia-bootstrapper").then(function(m) {
+          console.log(m);
+        });
       });
     </script>
   </body>

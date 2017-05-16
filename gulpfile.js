@@ -65,7 +65,7 @@ builder
         "../node_modules/aurelia-templating-router/dist/system/route-href.js",
         "../node_modules/aurelia-templating-router/dist/system/route-loader.js",
         "../node_modules/aurelia-templating-router/dist/system/router-view.js",
-      ], "scripts/vendor-bundle.js")
+      ], "scripts/app-bundle.js")
 .then(function() {
   console.log('Build complete');
   done();

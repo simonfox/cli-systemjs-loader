@@ -13,6 +13,7 @@
     "bluebird": "^3.4.1",
     "requirejs": "^2.3.2",
     "systemjs": "^0.20.12",
+    "systemjs-plugin-babel": "0.0.21",
     "systemjs-plugin-text": "0.0.9",
     "text": "github:requirejs/text#latest"
   },

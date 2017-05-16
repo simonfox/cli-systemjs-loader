@@ -14,11 +14,12 @@
     <script>
       window.define = SystemJS.amdDefine;
       window.require = window.requirejs = SystemJS.amdRequire;
-
-      SystemJS.import("scripts/vendor-bundle.js").then(function(m) {
-        SystemJS.import("aurelia-bootstrapper").then(function(m) {
-          console.log(m);
-        });
+    </script>
+    <script src="scripts/app-bundle.js"></script>
+    <script src="scripts/vendor-bundle.js"></script>
+    <script>
+      SystemJS.import("aurelia-bootstrapper").then(function(m) {
+        console.log(m);
       });
     </script>
   </body>

@@ -1,7 +1,4 @@
 SystemJS.config({
-    paths: {
-      "node_modules/": "node_modules/"
-    },
     map: {
       "src": "src",
       "main": "src/main",

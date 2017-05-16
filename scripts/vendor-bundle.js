@@ -21427,7 +21427,7 @@ define('aurelia-testing/wait',['exports'], function (exports) {
     }, options);
   }
 });
-function _aureliaConfigureModuleLoader() {
+function _aureliaConfigureModuleLoader(){
   window.define = SystemJS.amdDefine;
   window.require = window.requirejs = SystemJS.amdRequire;
 
@@ -21443,7 +21443,7 @@ function _aureliaConfigureModuleLoader() {
       "text": "node_modules/systemjs-plugin-text/text.js",
 
       "aurelia-binding":"node_modules/aurelia-binding/dist/system/aurelia-binding",
-      "aurelia-bootstrapper":"../node_modules/aurelia-bootstrapper/dist/system/aurelia-bootstrapper",
+      "aurelia-bootstrapper":"node_modules/aurelia-bootstrapper/dist/system/aurelia-bootstrapper",
       "aurelia-dependency-injection":"node_modules/aurelia-dependency-injection/dist/system/aurelia-dependency-injection",
       "aurelia-event-aggregator":"node_modules/aurelia-event-aggregator/dist/system/aurelia-event-aggregator",
       "aurelia-framework":"node_modules/aurelia-framework/dist/system/aurelia-framework",

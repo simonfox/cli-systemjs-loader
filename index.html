@@ -10,13 +10,9 @@
     <script src="node_modules/bluebird/js/browser/bluebird.core.js"></script>
     <script src="node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird.js"></script>
     <script src="node_modules/systemjs/dist/system.js"></script>
-    <script src="config.js"></script>
-    <script>
-      window.define = SystemJS.amdDefine;
-      window.require = window.requirejs = SystemJS.amdRequire;
-    </script>
-    <script src="scripts/app-bundle.js"></script>
     <script src="scripts/vendor-bundle.js"></script>
+    <script src="scripts/app-bundle.js"></script>
+    
     <script>
       SystemJS.import("aurelia-bootstrapper").then(function(m) {
         console.log(m);

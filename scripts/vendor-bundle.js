@@ -21445,8 +21445,14 @@ define('aurelia-testing/wait',['exports'], function (exports) {
 function _aureliaConfigureModuleLoader(){
   window.define = SystemJS.amdDefine;
   window.require = window.requirejs = SystemJS.amdRequire;
-  
+
   SystemJS.config({
-    "baseURL":"src"
-  });
+    map: {
+      "text": 'node_modules/systemjs-plugin-text/text.js',
+      "app-bundle": "scripts/app-bundle.js"
+    },
+    bundles: {
+      "app-bundle": ["app", "main", "environment", "resources/index"]
+    }
+  });  
 }

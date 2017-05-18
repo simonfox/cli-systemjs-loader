@@ -1,9 +1,9 @@
-define('app',['exports'], function (exports) {
+System.registerDynamic('lib/app.js', [], true, function ($__require, exports, module) {
   'use strict';
 
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
+  var global = this || self,
+      GLOBAL = global;
+  exports.__esModule = true;
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -17,31 +17,31 @@ define('app',['exports'], function (exports) {
     this.message = 'Hello World!';
   };
 });
-define('environment',["exports"], function (exports) {
+System.registerDynamic("lib/environment.js", [], true, function ($__require, exports, module) {
   "use strict";
 
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
+  var global = this || self,
+      GLOBAL = global;
+  exports.__esModule = true;
   exports.default = {
     debug: true,
     testing: true
   };
 });
-define('main',['exports', './environment'], function (exports, _environment) {
+System.registerDynamic('lib/main.js', ['./environment'], true, function ($__require, exports, module) {
   'use strict';
 
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
+  var global = this || self,
+      GLOBAL = global;
+  exports.__esModule = true;
   exports.configure = configure;
+
+  var _environment = $__require('./environment');
 
   var _environment2 = _interopRequireDefault(_environment);
 
   function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-      default: obj
-    };
+    return obj && obj.__esModule ? obj : { default: obj };
   }
 
   function configure(aurelia) {
@@ -60,14 +60,12 @@ define('main',['exports', './environment'], function (exports, _environment) {
     });
   }
 });
-define('resources/index',["exports"], function (exports) {
+System.registerDynamic("lib/resources/index.js", [], true, function ($__require, exports, module) {
   "use strict";
 
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
+  var global = this || self,
+      GLOBAL = global;
+  exports.__esModule = true;
   exports.configure = configure;
   function configure(config) {}
 });
-define('app.html!text', ['module'], function(module) { module.exports = "<template><h1>${message}</h1></template>"; });
-//# sourceMappingURL=app-bundle.js.map

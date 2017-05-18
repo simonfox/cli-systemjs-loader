@@ -12,10 +12,15 @@
     <script src="node_modules/systemjs/dist/system.js"></script>
     <script src="scripts/vendor-bundle.js"></script>
     <script src="scripts/app-bundle.js"></script>
+    <!--<script src="config.js"></script>
+    <script src="scripts/systemjs-vendor-bundle.js"></script>
+    <script src="scripts/systemjs-app-bundle.js"></script>-->
     
     <script>
       SystemJS.import("aurelia-bootstrapper").then(function(m) {
         console.log(m);
+      }).catch(function(err) {
+        console.log(err);
       });
     </script>
   </body>

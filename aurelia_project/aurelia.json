@@ -91,9 +91,7 @@
       },
       {
         "name": "vendor-bundle.js",
-        "prepend": [
-          
-        ],
+        "prepend": [],
         "dependencies": [
           "aurelia-binding",
           "aurelia-bootstrapper",
@@ -116,7 +114,11 @@
           "aurelia-task-queue",
           "aurelia-templating",
           "aurelia-templating-binding",
-          "text",
+          {
+            "name": "text",
+            "path": "../node_modules/systemjs-plugin-text",
+            "main": "text"
+          },
           {
             "name": "aurelia-templating-resources",
             "path": "../node_modules/aurelia-templating-resources/dist/amd",

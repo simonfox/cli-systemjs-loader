@@ -20987,7 +20987,22 @@ define('aurelia-templating-binding',['exports', 'aurelia-logging', 'aurelia-bind
     config.container.registerAlias(_aureliaTemplating.BindingLanguage, TemplatingBindingLanguage);
   }
 });
-define('text',{});
+define('text/text',['require','exports','module'],function (require, exports, module) {/*
+  Text plugin
+*/
+exports.translate = function(load) {
+  if (this.builder && this.transpiler) {
+    load.metadata.format = 'esm';
+    return 'exp' + 'ort var __useDefault = true; exp' + 'ort default ' + JSON.stringify(load.source) + ';';
+  }
+  
+  load.metadata.format = 'amd';
+  return 'def' + 'ine(function() {\nreturn ' + JSON.stringify(load.source) + ';\n});';
+}
+
+});
+;define('text', ['text/text'], function (main) { return main; });
+
 define('aurelia-templating-resources/aurelia-templating-resources',['exports', 'aurelia-pal', './compose', './if', './with', './repeat', './show', './hide', './sanitize-html', './replaceable', './focus', 'aurelia-templating', './css-resource', './html-sanitizer', './attr-binding-behavior', './binding-mode-behaviors', './throttle-binding-behavior', './debounce-binding-behavior', './self-binding-behavior', './signal-binding-behavior', './binding-signaler', './update-trigger-binding-behavior', './abstract-repeater', './repeat-strategy-locator', './html-resource-plugin', './null-repeat-strategy', './array-repeat-strategy', './map-repeat-strategy', './set-repeat-strategy', './number-repeat-strategy', './repeat-utilities', './analyze-view-factory', './aurelia-hide-style'], function (exports, _aureliaPal, _compose, _if, _with, _repeat, _show, _hide, _sanitizeHtml, _replaceable, _focus, _aureliaTemplating, _cssResource, _htmlSanitizer, _attrBindingBehavior, _bindingModeBehaviors, _throttleBindingBehavior, _debounceBindingBehavior, _selfBindingBehavior, _signalBindingBehavior, _bindingSignaler, _updateTriggerBindingBehavior, _abstractRepeater, _repeatStrategyLocator, _htmlResourcePlugin, _nullRepeatStrategy, _arrayRepeatStrategy, _mapRepeatStrategy, _setRepeatStrategy, _numberRepeatStrategy, _repeatUtilities, _analyzeViewFactory, _aureliaHideStyle) {
   'use strict';
 
@@ -21430,57 +21445,8 @@ define('aurelia-testing/wait',['exports'], function (exports) {
 function _aureliaConfigureModuleLoader(){
   window.define = SystemJS.amdDefine;
   window.require = window.requirejs = SystemJS.amdRequire;
-
+  
   SystemJS.config({
-    map: {
-      "src": "src",
-      "main": "src/main",
-      "resources": "src/resources",
-      "app": "src/app",
-
-      'plugin-babel': 'node_modules/systemjs-plugin-babel/plugin-babel.js',
-      'systemjs-babel-build': 'node_modules/systemjs-plugin-babel/systemjs-babel-browser.js',
-      "text": "node_modules/systemjs-plugin-text/text.js",
-
-      "aurelia-binding":"node_modules/aurelia-binding/dist/system/aurelia-binding",
-      "aurelia-bootstrapper":"node_modules/aurelia-bootstrapper/dist/system/aurelia-bootstrapper",
-      "aurelia-dependency-injection":"node_modules/aurelia-dependency-injection/dist/system/aurelia-dependency-injection",
-      "aurelia-event-aggregator":"node_modules/aurelia-event-aggregator/dist/system/aurelia-event-aggregator",
-      "aurelia-framework":"node_modules/aurelia-framework/dist/system/aurelia-framework",
-      "aurelia-history":"node_modules/aurelia-history/dist/system/aurelia-history",
-      "aurelia-history-browser":"node_modules/aurelia-history-browser/dist/system/aurelia-history-browser",
-      "aurelia-loader":"node_modules/aurelia-loader/dist/system/aurelia-loader",
-      "aurelia-loader-default":"node_modules/aurelia-loader-default/dist/system/aurelia-loader-default",
-      "aurelia-logging":"node_modules/aurelia-logging/dist/system/aurelia-logging",
-      "aurelia-logging-console":"node_modules/aurelia-logging-console/dist/system/aurelia-logging-console",
-      "aurelia-metadata":"node_modules/aurelia-metadata/dist/system/aurelia-metadata",
-      "aurelia-pal":"node_modules/aurelia-pal/dist/system/aurelia-pal",
-      "aurelia-pal-browser":"node_modules/aurelia-pal-browser/dist/system/aurelia-pal-browser",
-      "aurelia-path":"node_modules/aurelia-path/dist/system/aurelia-path",
-      "aurelia-polyfills":"node_modules/aurelia-polyfills/dist/system/aurelia-polyfills",
-      "aurelia-route-recognizer":"node_modules/aurelia-route-recognizer/dist/system/aurelia-route-recognizer",
-      "aurelia-router":"node_modules/aurelia-router/dist/system/aurelia-router",
-      "aurelia-task-queue":"node_modules/aurelia-task-queue/dist/system/aurelia-task-queue",
-      "aurelia-templating":"node_modules/aurelia-templating/dist/system/aurelia-templating",
-      "aurelia-templating-binding":"node_modules/aurelia-templating-binding/dist/system/aurelia-templating-binding",
-      
-      "aurelia-templating-resources":"node_modules/aurelia-templating-resources/dist/system/aurelia-templating-resources",
-      "aurelia-templating-resources/":"node_modules/aurelia-templating-resources/dist/system/",
-      "aurelia-templating-router":"node_modules/aurelia-templating-router/dist/system/aurelia-templating-router",
-      "aurelia-templating-router/":"node_modules/aurelia-templating-router/dist/system/",
-      "aurelia-testing":"node_modules/aurelia-testing/dist/system/aurelia-testing",
-      "aurelia-testing/":"node_modules/aurelia-testing/dist/system/"
-    },
-    transpiler: 'plugin-babel',
-    packages: {
-      '/': {
-        defaultExtension: 'js'
-      }
-    },
-    meta: {
-      "**/*.html": {
-        loader: "text"
-      }
-    }
+    "baseURL":"src"
   });
 }
